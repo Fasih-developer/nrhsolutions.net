@@ -1,0 +1,95 @@
+/* --- Mobile Adjustments --- */
+.header__container {
+    height: 70px;
+}
+
+.header__nav, 
+.header__cta {
+    display: none;
+}
+
+.nav__toggle {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: var(--primary-text);
+    cursor: pointer;
+}
+
+.header__mobile-menu {
+    display: flex;
+    flex-direction: column;
+}
+
+.menu__close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 2.2rem;
+    color: var(--secondary-color);
+}
+
+.mobile-nav__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.mobile-nav__link {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-text);
+}
+/* --- Hero Mobile --- */
+.hero {
+    padding: 1rem 0;
+}
+
+.hero__wrapper {
+    height: 70vh;
+    min-height: 500px;
+}
+
+.hero__content {
+    padding: 0 1.5rem;
+    text-align: center;
+}
+
+.hero__title {
+    font-size: 2rem;
+}
+
+.hero__description {
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+}
+
+.hero__actions {
+    width: 100%;
+}
+/* --- Features Mobile --- */
+.features__title {
+    font-size: 1.8rem;
+    margin-bottom: 2.5rem;
+}
+
+.features__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.feature-card {
+    padding: 2rem 1rem;
+}
+
+.feature-card__title {
+    font-size: 1.1rem;
+}
+
+.feature-card__text {
+    font-size: 0.85rem;
+}

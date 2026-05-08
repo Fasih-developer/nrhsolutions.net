@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300..700;1,300..700&display=swap');
 
 :root {
-    --bg-color: #efeae2;
+    --bg-color: #fffbf5;
     --primary-text: #2e2b2b;
     --secondary-color: #5c1d24;
-    --accent-hover: #751923;
-    --card-color: #e5d3b3;
+    --accent-hover: #9b1a29;
+    --card-color: #e5d3b3c2;
 }
 
 * {
@@ -28,7 +28,7 @@ body {
 }
 .container {
     width: 100%;
-    max-width: 1440px;
+    max-width: 1700px;
     margin: 0 auto;
     padding: 0 2rem;
 }
@@ -59,4 +59,296 @@ img {
 i {
     display: inline-block;
     line-height: 1;
+}
+/* --- Header Section --- */
+.header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: var(--bg-color);
+    border-bottom: 1px solid rgba(46, 43, 43, 0.1);
+}
+
+.header__container {
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header__logo img {
+    height: 50px; /* Adjust based on logo aspect ratio */
+    width: auto;
+}
+
+/* Desktop Nav */
+.header__nav {
+    display: block;
+}
+
+.nav__list {
+    display: flex;
+    list-style: none;
+    gap: 2.5rem;
+}
+
+.nav__link {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--primary-text);
+    letter-spacing: 1px;
+    position: relative; 
+    padding-bottom: 8px; 
+    transition: all 0.3s ease;
+}
+
+.nav__link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) scale(0); 
+    width: 6px;
+    height: 6px;
+    background-color: var(--secondary-color);
+    border-radius: 50%;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.nav__link:hover {
+color: var(--secondary-color);
+    font-size: 0.95rem;
+}
+
+.nav__link:hover::after {
+    transform: translateX(-50%) scale(1); 
+}
+/* Actions & Button */
+.header__actions {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.action__phone {
+    width: 42px;
+    height: 42px;
+    background-color: var(--secondary-color);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    animation: phoneWobble 2s infinite ease-in-out;
+    transition: all ease 0.3s;
+}
+.action__phone:hover{
+    scale:1.2;
+}
+
+@keyframes phoneWobble {
+    0%, 100% { transform: rotate(0deg); }
+    20% { transform: rotate(-15deg); }
+    40% { transform: rotate(15deg); }
+    60% { transform: rotate(-10deg); }
+    80% { transform: rotate(10deg); }
+}
+
+.btn--primary {
+    background-color: var(--secondary-color);
+    color: #fff;
+    padding: 0.8rem 1.6rem;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all ease 0.3s;
+}
+
+.btn--primary:hover {
+    background-color: var(--accent-hover);
+}
+
+.nav__toggle {
+    display: none;
+}
+.header__mobile-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    height: 100vh;
+    background-color: var(--bg-color);
+    z-index: 1001;
+    padding: 5rem 2rem;
+    box-shadow: -5px 0 25px rgba(0,0,0,0.05);
+}
+/* --- Hero Section --- */
+.hero {
+    padding: 2rem 0rem 0rem 0rem; /* Breathing room from navbar */
+    background-color: var(--bg-color);
+}
+
+.hero__wrapper {
+    position: relative;
+    height: 85vh;
+    min-height: 600px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: #81572d; /* Requested base color */
+    overflow: hidden;
+    border-radius: 8px; /* Subtle premium rounding */
+}
+
+.hero__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0; /* Initial state for GSAP fade */
+}
+
+.hero__bg::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #81572d;
+    opacity: 0.4; /* Image visible at 0.6 opacity */
+    z-index: 2;
+}
+
+.hero__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero__content {
+    position: relative;
+    z-index: 3;
+    padding: 0 4rem;
+    max-width: 1000px;
+}
+
+.hero__title {
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    color: var(--bg-color);
+    text-transform: uppercase;
+    line-height: 1;
+    margin-bottom: 1.5rem;
+    font-weight: 900;
+    opacity: 0; /* Initial state */
+}
+.hero__description {
+    font-size: 1.3rem;
+    color: var(--bg-color);
+    max-width: 700px;
+    margin-bottom: 2.5rem;
+    font-weight: 500;
+    line-height: 1.3;
+    opacity: 0; /* Initial state */
+}
+
+.hero__actions {
+    opacity: 0;
+    transform: scale(0.8); 
+}
+
+.btn--large {
+    padding: 1.2rem 2.8rem;
+    font-size: 0.9rem;
+    display: inline-block;
+}
+
+/* --- Why Choose Us Section --- */
+.features__title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 4rem;
+    color: var(--primary-text);
+}
+
+.features__grid {
+    display: grid;
+    padding: 0rem 4rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.feature-card {
+    background-color: var(--card-color);
+    padding: 4rem 3rem;
+    border-radius: 15px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    cursor: default;
+    opacity: 0;
+    visibility: hidden;
+    will-change: transform, opacity;
+}
+
+/* Hover Scaling & Shadow */
+.feature-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(46, 43, 43, 0.15);
+}
+
+/* Top Border Loading Animation */
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 5px;
+    background-color: var(--secondary-color);
+    transition: width 0.5s ease;
+}
+
+.feature-card:hover::before {
+    width: 100%;
+}
+
+.feature-card__icon {
+    font-size: 2.5rem;
+    color: var(--secondary-color);
+    margin-bottom: 1.5rem;
+    display: inline-block;
+}
+
+/* Icon Wobble on Hover */
+.feature-card:hover .feature-card__icon {
+    animation: iconWobble 0.5s ease-in-out infinite;
+}
+
+@keyframes iconWobble {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-10deg); }
+    75% { transform: rotate(10deg); }
+}
+
+.feature-card__title {
+    font-size: 1.25rem;
+    color: var(--primary-text);
+    margin-bottom: 1rem;
+}
+
+.feature-card__text {
+    font-size: 0.95rem;
+    color: var(--primary-text);
+    opacity: 0.8;
+    line-height: 1.6;
+    margin-bottom: 0;
 }

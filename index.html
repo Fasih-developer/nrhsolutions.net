@@ -13,17 +13,123 @@
 </head>
 <body>
     
-    <!-- Header: Full width, edge-to-edge -->
-    <header class="header" id="header">
-        <!-- Container keeps content max 1440px and centered -->
+    <!-- Header Section -->
+    <header class="header">
         <div class="container header__container">
-            <!-- Navigation will be injected here -->
+            <!-- Logo -->
+            <a href="/" class="header__logo" aria-label="NRH Solutions Home">
+                <img src="./media//Logo.png" alt="NRH Solutions Logo">
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="header__nav" aria-label="Primary Navigation">
+                <ul class="nav__list">
+                    <li><a href="/" class="nav__link">Home</a></li>
+                    <li><a href="./services.html" class="nav__link">Services</a></li>
+                    <li><a href="./aboutus.html" class="nav__link">About Us</a></li>
+                    <li><a href="./contact.html" class="nav__link">Contact Us</a></li>
+                </ul>
+            </nav>
+
+            <!-- Action Group -->
+            <div class="header__actions">
+                <a href="tel:+123456789" class="action__phone" aria-label="Call Us Now">
+                    <i class="ri-phone-fill"></i>
+                </a>
+                <a href="/contact.html" class="btn btn--primary header__cta">Request Quote</a>
+                
+                <!-- Mobile Toggle -->
+                <button class="nav__toggle" id="menu-open" aria-label="Open Menu">
+                    <i class="ri-menu-3-line"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div class="header__mobile-menu" id="mobile-menu">
+            <button class="menu__close" id="menu-close" aria-label="Close Menu">
+                <i class="ri-close-line"></i>
+            </button>
+            <ul class="mobile-nav__list">
+                <li><a href="/" class="mobile-nav__link">Home</a></li>
+                <li><a href="/services.html" class="mobile-nav__link">Services</a></li>
+                <li><a href="/aboutus.html" class="mobile-nav__link">About Us</a></li>
+                <li><a href="/contact.html" class="mobile-nav__link">Contact Us</a></li>
+                <li><a href="/contact.html" class="btn btn--primary">Request Quote</a></li>
+            </ul>
         </div>
     </header>
 
     <!-- Main Content -->
     <main class="main">
-        <!-- Sections will be injected here -->
+        <!-- -------------- hero section ------------------ -->
+        <section class="hero" id="home">
+        <div class="container hero__outer-container">
+        <div class="hero__wrapper">
+            <div class="hero__bg">
+                <img src="./media/hero.jpg" alt="Professional property maintenance workspace" class="hero__image">
+            </div>
+            
+            <div class="hero__content">
+                <h1 class="hero__title">
+                    Your Premier Partner in
+                    <span>Property Excellence</span>
+                </h1>
+                <p class="hero__description">
+                    From proactive maintenance to emergency rapid-response repairs, 
+                    we provide sophisticated solutions to keep your assets in peak condition.
+                </p>
+                <div class="hero__actions">
+                    <a href="./contact.html" class="btn btn--primary btn--large">Request Quote</a>
+                </div>
+            </div>
+        </div>
+        </div>
+        </section>
+        <!-- ----------------- why choose us ------------------- -->
+         <section class="features section" id="features">
+            <div class="container">
+                <h2 class="features__title">Why Choose Us</h2>
+                <div class="features__grid">
+                    <div class="feature-card">
+                        <i class="ri-money-dollar-circle-line feature-card__icon"></i>
+                        <h3 class="feature-card__title">Competitive Pricing</h3>
+                        <p class="feature-card__text">Premium quality maintenance delivered at rates that respect your budget.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <i class="ri-chat-check-line feature-card__icon"></i>
+                        <h3 class="feature-card__title">Transparent Dialogue</h3>
+                        <p class="feature-card__text">Clear, honest communication through every stage of your project.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <i class="ri-team-line feature-card__icon"></i>
+                        <h3 class="feature-card__title">Expert Technicians</h3>
+                        <p class="feature-card__text">A vetted team of professionals dedicated to superior craftsmanship.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <i class="ri-time-line feature-card__icon"></i>
+                        <h3 class="feature-card__title">24/7 Availability</h3>
+                        <p class="feature-card__text">Our support remains active around the clock for your peace of mind.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <i class="ri-alert-line feature-card__icon"></i>
+                        <h3 class="feature-card__title">Rapid Response</h3>
+                        <p class="feature-card__text">Strategic emergency protocols to handle urgent repairs immediately.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <i class="ri-moon-clear-line feature-card__icon"></i>
+                        <h3 class="feature-card__title">Extended Support</h3>
+                        <p class="feature-card__text">Reliable service coverage that extends beyond standard business hours.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="awien"></div>
     </main>
 
     <!-- Footer: Full width, edge-to-edge -->
