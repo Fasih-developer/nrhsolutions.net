@@ -281,3 +281,20 @@
     .privacy-block--legal {
         padding: 1.5rem;
     }
+
+
+
+
+    .about-page { padding: 6rem 0 4rem 0; }
+    .about-page__header { margin-bottom: 2.5rem; }
+    .about-page__top-title { font-size: 2.5rem; }
+    .about-page__content { margin-bottom: 3rem; }
+    .about-page__intro { font-size: 1.05rem; margin-bottom: 2.5rem; }
+    .about-page__title { font-size: 2.1rem; margin-bottom: 1.5rem; }
+    .about-page__desc { font-size: 1rem; }
+    .about-page__image-wrapper, .about-page__image { border-radius: 12px; }
+
+
+
+
+

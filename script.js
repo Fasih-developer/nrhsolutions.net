@@ -488,6 +488,77 @@ window.addEventListener("load", () => {
     }
 });
 }
+function about_us(){
+    // Add inside your DOMContentLoaded listener
+
+const aboutPage = document.querySelector('.about-page');
+
+if (aboutPage) {
+    // 1. Force the section to become visible BEFORE the animation starts
+    gsap.set(aboutPage, { autoAlpha: 1 });
+
+    const aboutTl = gsap.timeline({
+        scrollTrigger: {
+            trigger: aboutPage,
+            start: "top 85%" // Triggers when the section is 15% into the screen
+        }
+    });
+
+    aboutTl
+        // 2. Animate the NEW Main Header (ABOUT US)
+        .from(".about-page__top-title", {
+            opacity: 0,
+            y: -20,
+            duration: 0.8,
+            ease: "power2.out"
+        })
+        .from(".about-page__line", {
+            width: 0,
+            duration: 0.6,
+            ease: "power2.out"
+        }, "-=0.4")
+
+        // 3. Animate Top Intro Text
+        .from(".about-page__intro", {
+            opacity: 0,
+            y: 30, // Fades UP
+            duration: 0.8,
+            ease: "power2.out"
+        }, "-=0.2")
+        
+        // 4. Animate the Question Heading
+        .from(".about-page__title", {
+            opacity: 0,
+            y: 30,
+            duration: 0.8,
+            ease: "power2.out"
+        }, "-=0.5") 
+        
+        // 5. Animate the Bottom Text
+        .from(".about-page__desc", {
+            opacity: 0,
+            y: 30,
+            duration: 0.8,
+            ease: "power2.out"
+        }, "-=0.5")
+        
+        // 6. Image Reveal (Fades in AND scales down to normal size)
+        .fromTo(".about-page__image", 
+            {
+                opacity: 0,
+                scale: 1.08 
+            },
+            {
+                opacity: 1,
+                scale: 1, 
+                duration: 1.2,
+                ease: "power3.out",
+                clearProps: "all" // Cleans up GSAP inline styles after it finishes
+            }, 
+            "-=0.4"
+        );
+}
+}
 header();
 hero();
 choose();
@@ -499,3 +570,4 @@ services_page();
 contact();
 privacy_policy();
 loader();
+about_us();
