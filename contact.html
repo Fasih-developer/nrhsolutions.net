@@ -12,7 +12,19 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="style-mob.css" media="screen and (max-width: 768px)">
 </head>
-<body>
+<body class="loading">
+    <!-- Global Preloader Animation -->
+<div class="preloader">
+    <!-- 1. Circular Spinner (Centered) -->
+    <div class="preloader__spinner"></div>
+
+    <!-- 2. Logo & Reveal Box Container -->
+    <div class="preloader__logo-wrapper">
+        <img src="./media/loader.png" alt="NRH Solutions Logo" class="preloader__logo">
+        <!-- This box perfectly covers the logo initially -->
+        <div class="preloader__reveal-box"></div>
+    </div>
+</div>
     
     <!-- Header Section -->
     <header class="header">

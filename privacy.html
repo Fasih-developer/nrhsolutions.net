@@ -12,7 +12,19 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="style-mob.css" media="screen and (max-width: 768px)">
 </head>
-<body>
+<body class="loading">
+    <!-- Global Preloader Animation -->
+<div class="preloader">
+    <!-- 1. Circular Spinner (Centered) -->
+    <div class="preloader__spinner"></div>
+
+    <!-- 2. Logo & Reveal Box Container -->
+    <div class="preloader__logo-wrapper">
+        <img src="./media/loader.png" alt="NRH Solutions Logo" class="preloader__logo">
+        <!-- This box perfectly covers the logo initially -->
+        <div class="preloader__reveal-box"></div>
+    </div>
+</div>
     
     <!-- Header Section -->
     <header class="header">
@@ -63,7 +75,87 @@
 
     <!-- Main Content -->
     <main class="main">
-        
+        <!-- Privacy Policy Section -->
+    <section class="privacy-page section">
+        <div class="container privacy-page__container">
+            
+            <!-- Header -->
+            <div class="privacy-page__header">
+                <h1 class="privacy-page__title">PRIVACY <span>POLICY</span></h1>
+                <p class="privacy-page__desc">
+                    Our Commitment to Your Privacy and Data Security
+                </p>
+                <div class="privacy-page__line"></div>
+            </div>
+
+            <!-- Privacy Content -->
+            <div class="privacy-page__content">
+                
+                <div class="privacy-block">
+                    <h2>1. The Information We Gather</h2>
+                    <p>To provide you with seamless property maintenance solutions, we collect essential contact details when you voluntarily reach out to us. This may include your <strong>Name, Phone Number, Email Address, and relevant Business Information</strong>. We gather this data exclusively to facilitate clear communication, deliver our services, and provide exceptional support.</p>
+                </div>
+
+                <div class="privacy-block">
+                    <h2>2. Putting Your Information to Work</h2>
+                    <p>Your data is utilized strictly for legitimate, operational business purposes. We use this information to:</p>
+                    <ul>
+                        <li>Communicate regarding ongoing or future services</li>
+                        <li>Provide real-time updates on your projects</li>
+                        <li>Confirm and manage appointments</li>
+                        <li>Deliver prompt customer support and troubleshoot issues</li>
+                    </ul>
+                </div>
+
+                <div class="privacy-block">
+                    <h2>3. Text Messaging & 10DLC Compliance</h2>
+                    <p>By providing your phone number, you authorize NRH Solutions to send you SMS messages regarding your requested services, project updates, and account notifications. Please note:</p>
+                    <ul>
+                        <li>Message frequency varies based on your interaction with our team.</li>
+                        <li>Standard message and data rates may apply depending on your carrier.</li>
+                    </ul>
+                    <p>You remain in total control. You can opt out at any time by replying <strong>STOP</strong>, or reply <strong>HELP</strong> if you need assistance.</p>
+                </div>
+
+                <div class="privacy-block">
+                    <h2>4. Our Strict Zero-Sharing Policy</h2>
+                    <p>Your trust is our foundation. We absolutely do not sell, rent, or share your personal data—especially your phone number—with third-party marketers or data brokers. Your details are kept securely in-house to serve you better.</p>
+                </div>
+
+                <div class="privacy-block">
+                    <h2>5. Trusted Service Partners</h2>
+                    <p>Occasionally, we utilize secure third-party platforms (such as secure SMS gateways) to route our communications to you. These carefully vetted providers are legally bound to maintain the highest levels of confidentiality and are prohibited from using your data for their own purposes.</p>
+                </div>
+
+                <div class="privacy-block">
+                    <h2>6. Safeguarding Your Data</h2>
+                    <p>We have implemented robust digital and physical security protocols to shield your personal information from unauthorized access, accidental disclosure, or misuse. Your privacy is treated with the utmost respect.</p>
+                </div>
+
+                <div class="privacy-block">
+                    <h2>7. Your Consent to Connect</h2>
+                    <p>When you submit your contact details via our website, digital forms, or direct correspondence, you are providing your express consent for NRH Solutions to contact you via SMS, phone, or email to fulfill your service requests.</p>
+                </div>
+
+                <div class="privacy-block">
+                    <h2>8. Your Right to Step Away</h2>
+                    <p>You can revoke your consent for SMS communications instantly. Simply reply <strong>STOP</strong> to any text message you receive from us, and you will be immediately removed from our SMS registry.</p>
+                </div>
+
+                <div class="privacy-block">
+                    <h2>9. Policy Evolution</h2>
+                    <p>As industry regulations and operational standards evolve, we may update this policy. Any changes will be published directly on this page to ensure you are always informed.</p>
+                </div>
+
+                <!-- Mandatory Legal & Opt-Out Clause -->
+                <div class="privacy-block privacy-block--legal">
+                    <p><strong>Mobile Data Disclaimer:</strong> No mobile information will be shared with any third parties/affiliates for marketing/promotional purposes. All other categories exclude text messaging originator opt-in data and consent; this information will not be shared with or obtained by any third parties.</p>
+                    <p>If you wish to be removed from receiving future communications, you can opt out at any time by texting <strong>STOP</strong> to our number or by contacting us at <strong>contact@nrhsolutions.com</strong>.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
     </main>
 
    <!-- Footer Section -->

@@ -344,7 +344,6 @@ if (servicesPage) {
     });
 }
 }
-
 function contact(){
     // Add inside your DOMContentLoaded listener
 
@@ -402,6 +401,93 @@ if (contactPage) {
         }, "-=0.2");
 }
 }
+function privacy_policy(){
+    // Add inside your DOMContentLoaded listener
+
+const privacyPage = document.querySelector('.privacy-page');
+
+if (privacyPage) {
+    // 1. Instantly reveal the section wrapper
+    gsap.set(privacyPage, { autoAlpha: 1 });
+
+    const privacyTl = gsap.timeline({
+        scrollTrigger: {
+            trigger: privacyPage,
+            start: "top 85%"
+        }
+    });
+
+    privacyTl
+        // 2. Pure fade in for header
+        .from(".privacy-page__header", {
+            opacity: 0,
+            duration: 1.2,
+            ease: "power2.inOut"
+        })
+        
+        // 3. Pure fade in for the main white container
+        .from(".privacy-page__content", {
+            opacity: 0,
+            duration: 1,
+            ease: "power2.inOut"
+        }, "-=0.6")
+
+        // 4. Staggered fade in for each paragraph/section inside
+        .from(".privacy-block", {
+            opacity: 0,
+            duration: 0.8,
+            stagger: 0.15, // Gently fades them in one after another
+            ease: "power2.inOut"
+        }, "-=0.4");
+}
+}
+function loader(){
+    // --- PRELOADER ANIMATION SEQUENCE ---
+window.addEventListener("load", () => {
+    const preloader = document.querySelector(".preloader");
+    
+    if (preloader) {
+        // Enforce a minimum spin time of 1 second for premium feel
+        setTimeout(() => {
+            const loaderTl = gsap.timeline();
+
+            loaderTl
+                // 1. Fade out the circular spinner
+                .to(".preloader__spinner", { 
+                    opacity: 0, 
+                    duration: 0.3 
+                })
+                
+                // 2. Make the logo wrapper visible (logo is still perfectly hidden by the box)
+                .set(".preloader__logo-wrapper", { 
+                    autoAlpha: 1 
+                })
+                
+                // 3. Slide the matching background box to the right, revealing the logo!
+                .to(".preloader__reveal-box", {
+                    xPercent: 101, // Pushes it 100% to the right
+                    duration: 1.2,
+                    ease: "power3.inOut"
+                })
+                
+                // 4. Short pause to admire the logo, then slide the whole dark background UP
+                .to(".preloader", {
+                    yPercent: -100, // Slides up out of view
+                    duration: 1.2,
+                    ease: "power4.inOut",
+                    delay: 0.4 // The pause
+                })
+                
+                // 5. Clean up: Restore scrolling and remove preloader from the DOM
+                .call(() => {
+                    document.body.classList.remove("loading");
+                    preloader.style.display = "none";
+                });
+
+        }, 1000); // 1000ms = 1 second forced minimum loader spin
+    }
+});
+}
 header();
 hero();
 choose();
@@ -411,3 +497,5 @@ slider();
 review();
 services_page();
 contact();
+privacy_policy();
+loader();

@@ -253,3 +253,31 @@
     .contact-form__row .contact-form__group:empty {
         display: none;
     }
+
+
+
+    /* --- Privacy Policy Mobile --- */
+    .privacy-page {
+        padding: 6rem 0 4rem 0;
+    }
+
+    .privacy-page__title {
+        font-size: 2.5rem;
+    }
+
+    .privacy-page__content {
+        padding: 2rem 1.5rem; /* Less padding on mobile */
+    }
+
+    .privacy-block h2 {
+        font-size: 1.15rem;
+    }
+
+    .privacy-block p, 
+    .privacy-block li {
+        font-size: 0.95rem;
+    }
+
+    .privacy-block--legal {
+        padding: 1.5rem;
+    }
