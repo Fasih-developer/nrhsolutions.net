@@ -93,3 +93,163 @@
 .feature-card__text {
     font-size: 0.85rem;
 }
+/* --- Stats Mobile --- */
+.stats__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem 1rem;
+}
+
+.stat-item__number {
+    font-size: 2.2rem;
+}
+
+.stat-item__label {
+    font-size: 0.85rem;
+}
+/* --- Scrolling Text Mobile --- */
+.scrolling-text {
+    padding: 1.5rem 0;
+}
+
+.marquee-content span {
+    font-size: 1.8rem;
+    padding: 0 1.2rem;
+}
+
+.marquee-track {
+    animation-duration: 20s; /* Slightly faster on mobile */
+}
+
+/* --- Services Slider Mobile Fixes --- */
+    .services-slider {
+        padding: 4rem 0;
+    }
+
+    .section-header__title {
+        font-size: 2.2rem;
+    }
+
+    .section-header {
+        margin-bottom: 2.5rem;
+    }
+
+    .services-slider__cta {
+        margin-top: 2.5rem;
+    }
+
+    .services-wrapper {
+        padding: 0; /* Remove lateral padding since arrows are hidden */
+    }
+
+    .services-wrapper .swiper-button-next,
+    .services-wrapper .swiper-button-prev {
+        display: none; /* Hide arrows, rely on touch swipe */
+    }
+
+    .service-card__content {
+        padding: 1.5rem 1rem;
+    }
+
+    .service-card__title {
+        font-size: 1.2rem;
+    }
+/* --- Testimonials Mobile --- */
+    .testimonials {
+        padding: 4rem 0;
+    }
+
+    .testimonials__title {
+        font-size: 2.2rem;
+    }
+
+    .testimonials__desc {
+        font-size: 0.95rem;
+    }
+
+    .testimonials__header {
+        margin-bottom: 2.5rem;
+    }
+
+    .testimonial-card {
+        padding: 2rem 1.5rem;
+    }
+
+    /* Swiper Fade adjustments */
+    .testimonials-swiper {
+        padding-bottom: 1rem;
+    }
+/* --- Footer Mobile --- */
+    .footer__container {
+        padding-top: 4rem;
+    }
+
+    .footer__grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        text-align: center; 
+    }
+
+    .footer__logo {
+        margin: 0 auto 1.5rem auto; 
+    }
+
+    .footer__heading::after {
+        left: 50%;
+        transform: translateX(-50%); 
+    }
+
+    .footer__list {
+        align-items: center; 
+    }
+
+    .footer__list a, 
+    .footer__location {
+        justify-content: center; 
+        text-align: center;
+    }
+
+    /* --- Services Page Mobile --- */
+
+
+    .services-page {
+        padding: 6rem 0 4rem 0;
+    }
+
+    .services-page__title {
+        font-size: 2.5rem;
+    }
+
+    .services-page__desc {
+        font-size: 1rem;
+    }
+
+    .services-page__grid {
+        grid-template-columns: 1fr; /* 1 card on mobile */
+        gap: 2rem;
+    }
+
+
+
+    /* --- Contact Page Mobile --- */
+    .contact-page {
+        padding: 6rem 0 4rem 0;
+    }
+
+    .contact-page__title {
+        font-size: 2.5rem;
+    }
+
+    .contact-form__wrapper {
+        padding: 2rem 1.5rem; /* Less padding on mobile */
+    }
+
+    /* Stack grid rows on top of each other */
+    .contact-form__row {
+        grid-template-columns: 1fr;
+        gap: 1.5rem; /* Keeps spacing consistent when stacked */
+    }
+
+    /* Hide the empty div we used for the zip code row */
+    .contact-form__row .contact-form__group:empty {
+        display: none;
+    }

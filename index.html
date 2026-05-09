@@ -6,7 +6,8 @@
     <meta name="description" content="NRH Solutions offers premium, reliable, and professional property maintenance services. Contact us for top-tier property care.">
     <meta name="keywords" content="Property Maintenance, NRH Solutions, Handyman Services, Premium Property Care">
     <title>NRH Solutions | Premium Property Maintenance</title>
-    <link rel="shortcut icon" href="/media/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="/media/favicon.webp" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet"/>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="style-mob.css" media="screen and (max-width: 768px)">
@@ -18,7 +19,7 @@
         <div class="container header__container">
             <!-- Logo -->
             <a href="/" class="header__logo" aria-label="NRH Solutions Home">
-                <img src="./media//Logo.png" alt="NRH Solutions Logo">
+                <img src="./media/Logo.webp" alt="NRH Solutions Logo">
             </a>
 
             <!-- Desktop Navigation -->
@@ -67,7 +68,7 @@
         <div class="container hero__outer-container">
         <div class="hero__wrapper">
             <div class="hero__bg">
-                <img src="./media/hero.jpg" alt="Professional property maintenance workspace" class="hero__image">
+                <img src="./media/hero.webp" alt="Professional property maintenance workspace" class="hero__image">
             </div>
             
             <div class="hero__content">
@@ -129,16 +130,442 @@
                 </div>
             </div>
         </section>
-        <div class="awien"></div>
+        <!-- Stats / Counter Section -->
+        <section class="stats section" id="stats">
+            <div class="container stats__container">
+                <div class="stats__grid">
+                    <!-- Stat 1 -->
+                    <div class="stat-item">
+                        <div class="stat-item__number" data-target="200" data-suffix="+">0+</div>
+                        <p class="stat-item__label">Satisfied Clients</p>
+                    </div>
+
+                    <!-- Stat 2 -->
+                    <div class="stat-item">
+                        <div class="stat-item__number" data-target="4.9" data-type="decimal" data-suffix="/5.0">0.0/5.0</div>
+                        <p class="stat-item__label">Service Rating</p>
+                    </div>
+
+                    <!-- Stat 3 -->
+                    <div class="stat-item">
+                        <div class="stat-item__number" data-target="98" data-suffix="%">0%</div>
+                        <p class="stat-item__label">Average Retention</p>
+                    </div>
+
+                    <!-- Stat 4 -->
+                    <div class="stat-item">
+                        <div class="stat-item__number" data-target="99" data-suffix="%">0%</div>
+                        <p class="stat-item__label">Trust Rate</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Scrolling Text Section -->
+        <section class="scrolling-text" id="ticker">
+            <div class="scrolling-text__container">
+                <!-- CSS Marquee Wrapper -->
+                <div class="marquee-track">
+                    <div class="marquee-content">
+                        <span> Reliable</span>
+                        <span> Solutions | </span>
+                        <span> Trusted</span>
+                        <span> Partners  | </span>
+                        <span> Premium</span>
+                        <span> Quality  | </span>
+                        <span> Expert</span>
+                        <span> Craftsmanship  | </span>
+                        <span> 24/7</span>
+                        <span> Support   | </span>
+                    </div>
+                    <!-- Duplicate for seamless CSS loop -->
+                    <div class="marquee-content" aria-hidden="true">
+                        <span> Reliable</span>
+                        <span> Solutions | </span>
+                        <span> Trusted</span>
+                        <span> Partners  | </span>
+                        <span> Premium</span>
+                        <span> Quality  | </span>
+                        <span> Expert</span>
+                        <span> Craftsmanship  | </span>
+                        <span> 24/7</span>
+                        <span> Support   | </span>
+                    </div>
+                    
+                    <!-- Duplicate for seamless CSS loop -->
+                    <div class="marquee-content" aria-hidden="true">
+                        <span> Reliable</span>
+                        <span> Solutions | </span>
+                        <span> Trusted</span>
+                        <span> Partners  | </span>
+                        <span> Premium</span>
+                        <span> Quality  | </span>
+                        <span> Expert</span>
+                        <span> Craftsmanship  | </span>
+                        <span> 24/7</span>
+                        <span> Support   | </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Services Slider Section -->
+        <section class="services-slider section" id="services">
+            <div class="container">
+                <!-- Section Header -->
+                <div class="section-header">
+                    <h2 class="section-header__title">Our Expertise</h2>
+                    <div class="section-header__line"></div>
+                </div>
+
+                <!-- Wrapper: Handles outside arrows and spacing -->
+                <div class="services-wrapper">
+                    <!-- Swiper Container -->
+                    <div class="swiper services-swiper">
+                        <div class="swiper-wrapper">
+                            
+                            <!-- Card 1 -->
+                            <div class="swiper-slide">
+                                <div class="service-card">
+                                    <img src="./media/handyman.webp" alt="General handyman services" class="service-card__image">
+                                    <div class="service-card__content">
+                                        <h3 class="service-card__title">General Handyman Services</h3>
+                                        <p class="service-card__desc">Versatile solutions for everyday household repairs and maintenance tasks.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 2 -->
+                            <div class="swiper-slide">
+                                <div class="service-card">
+                                    <img src="./media/HVAC.webp" alt="HVAC maintenance" class="service-card__image">
+                                    <div class="service-card__content">
+                                        <h3 class="service-card__title">HVAC Maintenance & Repair</h3>
+                                        <p class="service-card__desc">Ensuring optimal climate control and energy efficiency year-round.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 3 -->
+                            <div class="swiper-slide">
+                                <div class="service-card">
+                                    <img src="./media/electrical.webp" alt="Electrical services" class="service-card__image">
+                                    <div class="service-card__content">
+                                        <h3 class="service-card__title">Electrical Services</h3>
+                                        <p class="service-card__desc">Safe, reliable troubleshooting and installations by certified experts.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 4 -->
+                            <div class="swiper-slide">
+                                <div class="service-card">
+                                    <img src="./media/plumbing.webp" alt="Plumbing services" class="service-card__image">
+                                    <div class="service-card__content">
+                                        <h3 class="service-card__title">Plumbing Services</h3>
+                                        <p class="service-card__desc">Prompt fixes for leaks, installations, and complex plumbing systems.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 5 -->
+                            <div class="swiper-slide">
+                                <div class="service-card">
+                                    <img src="./media/interior.webp" alt="Interior and Exterior Renovations" class="service-card__image">
+                                    <div class="service-card__content">
+                                        <h3 class="service-card__title">Interior & Exterior Renovations</h3>
+                                        <p class="service-card__desc">Transforming spaces with expert craftsmanship and modern design.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 6 -->
+                            <div class="swiper-slide">
+                                <div class="service-card">
+                                    <img src="./media/snow.webp" alt="Snow removal" class="service-card__image">
+                                    <div class="service-card__content">
+                                        <h3 class="service-card__title">Snow Removal</h3>
+                                        <p class="service-card__desc">Proactive clearing to keep your property safe and accessible in winter.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 7 -->
+                            <div class="swiper-slide">
+                                <div class="service-card">
+                                    <img src="./media/repair.webp" alt="Appliance repair" class="service-card__image">
+                                    <div class="service-card__content">
+                                        <h3 class="service-card__title">Appliance Repair</h3>
+                                        <p class="service-card__desc">Fast diagnostics and repairs to restore your essential daily equipment.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 8 -->
+                            <div class="swiper-slide">
+                                <div class="service-card">
+                                    <img src="./media/unit.webp" alt="Unit turnover" class="service-card__image">
+                                    <div class="service-card__content">
+                                        <h3 class="service-card__title">Unit Turnover & Make Readies</h3>
+                                        <p class="service-card__desc">Streamlined preparation to get units rent-ready quickly and flawlessly.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 9 -->
+                            <div class="swiper-slide">
+                                <div class="service-card">
+                                    <img src="./media/cleaning.webp" alt="Cleaning services" class="service-card__image">
+                                    <div class="service-card__content">
+                                        <h3 class="service-card__title">Cleaning Services</h3>
+                                        <p class="service-card__desc">Deep and regular cleaning protocols tailored to maintain pristine environments.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 10 -->
+                            <div class="swiper-slide">
+                                <div class="service-card">
+                                    <img src="./media/gutter.webp" alt="Gutter cleaning" class="service-card__image">
+                                    <div class="service-card__content">
+                                        <h3 class="service-card__title">Gutter Cleaning & Drain Services</h3>
+                                        <p class="service-card__desc">Preventing water damage with thorough, professional blockage removal.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 11 -->
+                            <div class="swiper-slide">
+                                <div class="service-card">
+                                    <img src="./media/fence.webp" alt="Fence and deck" class="service-card__image">
+                                    <div class="service-card__content">
+                                        <h3 class="service-card__title">Fence, Deck & Carpentry</h3>
+                                        <p class="service-card__desc">Custom woodworking and structural enhancements for your exterior spaces.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 12 -->
+                            <div class="swiper-slide">
+                                <div class="service-card">
+                                    <img src="./media/lawn.webp" alt="Lawn care" class="service-card__image">
+                                    <div class="service-card__content">
+                                        <h3 class="service-card__title">Lawn Care & Landscaping</h3>
+                                        <p class="service-card__desc">Enhancing curb appeal through meticulous, year-round grounds management.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 13 -->
+                            <div class="swiper-slide">
+                                <div class="service-card">
+                                    <img src="./media/tree.webp" alt="Tree removal" class="service-card__image">
+                                    <div class="service-card__content">
+                                        <h3 class="service-card__title">Tree Removal</h3>
+                                        <p class="service-card__desc">Safe, professional extraction and trimming of hazardous or overgrown trees.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 14 -->
+                            <div class="swiper-slide">
+                                <div class="service-card">
+                                    <img src="./media/pest.webp" alt="Pest control" class="service-card__image">
+                                    <div class="service-card__content">
+                                        <h3 class="service-card__title">Pest Control & Wildlife Removal</h3>
+                                        <p class="service-card__desc">Humane, effective clearing and prevention of unwanted property guests.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 15 -->
+                            <div class="swiper-slide">
+                                <div class="service-card">
+                                    <img src="./media/roofing.webp" alt="Roofing and siding" class="service-card__image">
+                                    <div class="service-card__content">
+                                        <h3 class="service-card__title">Roofing, Siding & Windows</h3>
+                                        <p class="service-card__desc">Comprehensive exterior envelope repairs and robust weatherproofing.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 16 -->
+                            <div class="swiper-slide">
+                                <div class="service-card">
+                                    <img src="./media/painting.webp" alt="Painting and drywall" class="service-card__image">
+                                    <div class="service-card__content">
+                                        <h3 class="service-card__title">Painting, Drywall & Flooring</h3>
+                                        <p class="service-card__desc">Impeccable interior finishes to revitalize and protect your aesthetics.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 17 -->
+                            <div class="swiper-slide">
+                                <div class="service-card">
+                                    <img src="./media/24.webp" alt="Emergency maintenance" class="service-card__image">
+                                    <div class="service-card__content">
+                                        <h3 class="service-card__title">24/7 Emergency Maintenance</h3>
+                                        <p class="service-card__desc">Immediate, round-the-clock response for critical, time-sensitive property issues.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    
+                    <!-- Swiper Navigation Arrows (Outside the cards) -->
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+
+                <!-- CTA Button -->
+                <div class="services-slider__cta">
+                    <a href="./services.html" class="btn btn--primary">Explore All Services</a>
+                </div>
+            </div>
+        </section>
+        <!-- Testimonials Section -->
+        <section class="testimonials section" id="testimonials">
+            <div class="container">
+                <!-- Header -->
+                <div class="testimonials__header">
+                    <h2 class="testimonials__title">
+                        Zero stress. <span>Just peace of mind.</span>
+                    </h2>
+                    <p class="testimonials__desc">
+                        Our customers are fully satisfied. Experience property maintenance that runs like clockwork, handled by professionals who care.
+                    </p>
+                </div>
+
+                <!-- Cards Container (Grid on Desktop, Fading Slider on Mobile) -->
+                <div class="swiper testimonials-swiper">
+                    <div class="swiper-wrapper">
+                        
+                        <!-- Card 1 -->
+                        <div class="swiper-slide">
+                            <div class="testimonial-card">
+                                <i class="ri-user-smile-line testimonial-card__icon"></i>
+                                <div class="testimonial-card__content">
+                                    <h3 class="testimonial-card__name">Sarah Jenkins</h3>
+                                    <p class="testimonial-card__review">"NRH Solutions completely transformed how we handle our property maintenance. Fast, reliable, and incredibly professional. I don't have to worry about a thing."</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 2 -->
+                        <div class="swiper-slide">
+                            <div class="testimonial-card">
+                                <i class="ri-user-star-line testimonial-card__icon"></i>
+                                <div class="testimonial-card__content">
+                                    <h3 class="testimonial-card__name">Marcus Thorne</h3>
+                                    <p class="testimonial-card__review">"The 24/7 emergency response is an absolute lifesaver. It’s exactly what they promised: zero stress and total peace of mind for my entire portfolio."</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 3 -->
+                        <div class="swiper-slide">
+                            <div class="testimonial-card">
+                                <i class="ri-user-heart-line testimonial-card__icon"></i>
+                                <div class="testimonial-card__content">
+                                    <h3 class="testimonial-card__name">Emily Chen</h3>
+                                    <p class="testimonial-card__review">"Clear communication, fair pricing, and top-tier craftsmanship. I won't trust my properties with anyone else. Highly recommended."</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <!-- Footer: Full width, edge-to-edge -->
-    <footer class="footer">
+   <!-- Footer Section -->
+    <footer class="footer" id="footer">
+        <!-- Top Marquee -->
+        <div class="footer__marquee-wrapper">
+            <div class="footer__marquee">
+                <span>FEEL FREE TO CONTACT US.</span>
+                <span>FEEL FREE TO CONTACT US.</span>
+                <span>FEEL FREE TO CONTACT US.</span>
+                <span>FEEL FREE TO CONTACT US.</span>
+                <span>FEEL FREE TO CONTACT US.</span>
+                <span>FEEL FREE TO CONTACT US.</span>
+            </div>
+            <!-- Duplicate for seamless CSS loop -->
+            <div class="footer__marquee" aria-hidden="true">
+                <span>FEEL FREE TO CONTACT US.</span>
+                <span>FEEL FREE TO CONTACT US.</span>
+                <span>FEEL FREE TO CONTACT US.</span>
+                <span>FEEL FREE TO CONTACT US.</span>
+                <span>FEEL FREE TO CONTACT US.</span>
+                <span>FEEL FREE TO CONTACT US.</span>
+            </div>
+        </div>
+
+        <!-- Main Footer Content -->
         <div class="container footer__container">
-            <!-- Footer content will be injected here -->
+            <div class="footer__grid">
+                
+                <!-- Column 1: Brand -->
+                <div class="footer__col footer__col--brand">
+                    <img src="./media/NRH_logo_2.png" alt="NRH Solutions Logo" class="footer__logo">
+                    <p class="footer__desc">
+                        Your premier partner in property excellence. Delivering reliable solutions and complete peace of mind.
+                    </p>
+                </div>
+
+                <!-- Column 2: Useful Links -->
+                <div class="footer__col">
+                    <h4 class="footer__heading">Useful Links</h4>
+                    <ul class="footer__list">
+                        <li><a href="./aboutus.html">About</a></li>
+                        <li><a href="./services.html">Services</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Other Links -->
+                <div class="footer__col">
+                    <h4 class="footer__heading">Other Links</h4>
+                    <ul class="footer__list">
+                        <li><a href="./privacy.html">Privacy Policy</a></li>
+                        <li><a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a></li>
+                        <li><a href="https://facebook.com" target="_blank" rel="noopener">Facebook</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Contact Information -->
+                <div class="footer__col">
+                    <h4 class="footer__heading">Contact Us</h4>
+                    <ul class="footer__list footer__list--contact">
+                        <li>
+                            <a href="tel:+1XXXXXXXXXX">
+                                <i class="ri-phone-fill"></i> +1 (XXX) XXX-XXXX
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mailto:XXXXX@gmail.com">
+                                <i class="ri-mail-fill"></i> XXXXX@gmail.com
+                            </a>
+                        </li>
+                        <li>
+                            <span class="footer__location">
+                                <i class="ri-map-pin-fill"></i> XXX XXXXXX XXXXXXXXXXXXXX XXX
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Copyright Bar -->
+            <div class="footer__bottom">
+                <p>&copy; 2026 NRH Solutions. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
+    
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script src="script.js"></script>

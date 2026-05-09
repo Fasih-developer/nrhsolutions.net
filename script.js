@@ -90,7 +90,324 @@ featureTl.to(".feature-card", {
     clearProps: "transform" // Clears GSAP styles after animation so CSS hover works perfectly
 }, "-=0.4");
 }
+function stats(){
+const statsSection = document.querySelector(".stats");
+const counters = document.querySelectorAll(".stat-item__number");
 
+const statsTl = gsap.timeline({
+    scrollTrigger: {
+        trigger: statsSection,
+        start: "top 85%",
+    }
+});
+
+counters.forEach((counter, index) => {
+    const target = parseFloat(counter.getAttribute("data-target"));
+    const suffix = counter.getAttribute("data-suffix") || "";
+    const isDecimal = counter.getAttribute("data-type") === "decimal";
+
+    // Create an object to animate the value
+    const obj = { value: 0 };
+
+    statsTl.to(obj, {
+        value: target,
+        duration: 2,
+        ease: "power2.out",
+        onUpdate: () => {
+            // Update text based on type (integer or decimal)
+            if (isDecimal) {
+                counter.innerText = obj.value.toFixed(1) + suffix;
+            } else {
+                counter.innerText = Math.floor(obj.value) + suffix;
+            }
+        }
+    }, index * 0.2); // This creates the "mid-way start" cycle (0.2s delay between starts)
+});
+}
+function marquee(){
+    // Add to script.js
+const tickerSection = document.querySelector('.scrolling-text');
+
+const tickerEntryTl = gsap.timeline({
+    scrollTrigger: {
+        trigger: tickerSection,
+        start: "top 90%", // Triggers when section enters viewport
+    }
+});
+
+    tickerEntryTl
+    // 1. Reveal section instantly to stop blinking
+    .to(tickerSection, { 
+        autoAlpha: 1, 
+        duration: 0.1 
+    })
+    // 3. Text fades and slides up mid-way through top border animation
+    .from(".marquee-content span", { 
+        opacity: 0, 
+        y: 20,
+        duration: 0.8, 
+        stagger: {
+            each: 0.05,
+            from: "start"
+        },
+        ease: "power3.out"
+    }, 0.4)
+}
+function slider(){
+    document.addEventListener("DOMContentLoaded", () => {
+    // 1. Initialize Swiper
+    const swiper = new Swiper('.services-swiper', {
+        loop: true,
+        speed: 600,
+        autoplay: {
+            delay: 3500,
+            disableOnInteraction: false, 
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        breakpoints: {
+            0: { slidesPerView: 1, spaceBetween: 20 },
+            768: { slidesPerView: 2, spaceBetween: 30 },
+            1024: { slidesPerView: 4, spaceBetween: 30 },
+        }
+    });
+
+    // 2. GSAP Loading Animation
+    const servicesSection = document.querySelector('.services-slider');
+
+    const servicesTl = gsap.timeline({
+        scrollTrigger: {
+            trigger: servicesSection,
+            start: "top 80%", // Slightly earlier to ensure smooth load
+        }
+    });
+
+    servicesTl
+        // Instantly make the section visible (resolves the blink/FOUC)
+        .set(servicesSection, { autoAlpha: 1 })
+        
+        // Heading
+        .from(".section-header__title", {
+            opacity: 0,
+            y: -20,
+            duration: 0.6,
+            ease: "power2.out"
+        })
+        // Line
+        .from(".section-header__line", {
+            width: 0,
+            duration: 0.5,
+            ease: "power2.out"
+        }, "-=0.2")
+        // Cards
+        .from(".service-card", {
+            y: 60,
+            opacity: 0,
+            duration: 0.8,
+            stagger: {
+                each: 0.1,
+                from: "start"
+            },
+            ease: "back.out(1.2)",
+            clearProps: "transform" // FIX: Strips GSAP inline styles so CSS hover works again
+        }, "-=0.2")
+        // CTA Button
+        .from(".services-slider__cta", {
+            opacity: 0,
+            y: 20,
+            duration: 0.8,
+            ease: "power2.out",
+            clearProps: "transform"
+        }, "<"); // FIX: "<" forces this to start at the exact same time as the cards
+});
+}
+function review(){
+    // 1. Mobile-Only Swiper Logic
+let testimonialSwiper;
+
+const initTestimonialSwiper = () => {
+    if (window.innerWidth <= 768) {
+        // If mobile and Swiper isn't initialized yet, start it up
+        if (!testimonialSwiper) {
+            testimonialSwiper = new Swiper('.testimonials-swiper', {
+                effect: 'fade', // Smooth cross-fade
+                fadeEffect: {
+                    crossFade: true
+                },
+                loop: true,
+                autoHeight: true, // Adjusts height if reviews are different lengths
+                autoplay: {
+                    delay: 4000,
+                    disableOnInteraction: false,
+                },
+                speed: 800 // Smooth transition speed
+            });
+        }
+    } else {
+        // If desktop and Swiper is running, kill it so the CSS Grid takes over
+        if (testimonialSwiper) {
+            testimonialSwiper.destroy(true, true);
+            testimonialSwiper = undefined;
+        }
+    }
+};
+
+// Run on load and listen for screen resizing
+initTestimonialSwiper();
+window.addEventListener('resize', initTestimonialSwiper);
+
+
+// 2. GSAP Loading Animation
+const testSection = document.querySelector('.testimonials');
+
+const testTl = gsap.timeline({
+    scrollTrigger: {
+        trigger: testSection,
+        start: "top 80%",
+    }
+});
+
+testTl
+    // Instant reveal to kill FOUC
+    .set(testSection, { autoAlpha: 1 })
+    
+    // Heading Fades down
+    .from(".testimonials__title", {
+        opacity: 0,
+        y: -20,
+        duration: 0.6,
+        ease: "power2.out"
+    })
+    
+    // Subtext Fades up mid-way
+    .from(".testimonials__desc", {
+        opacity: 0,
+        y: 15,
+        duration: 0.6,
+        ease: "power2.out"
+    }, "-=0.3")
+    
+    // Cards pop up with stagger
+    .from(".testimonial-card", {
+        y: 50,
+        opacity: 0,
+        duration: 0.8,
+        stagger: {
+            each: 0.15,
+            from: "start"
+        },
+        ease: "back.out(1.2)",
+        clearProps: "transform" // Critical: Returns hover control to CSS
+    }, "-=0.2");
+}
+function services_page(){
+    const servicesPage = document.querySelector('.services-page');
+
+if (servicesPage) { 
+    gsap.set(servicesPage, { autoAlpha: 1 });
+
+    // 2. Animate Header Elements
+    const headerTl = gsap.timeline({
+        scrollTrigger: {
+            trigger: ".services-page__header",
+            start: "top 85%"
+        }
+    });
+
+    headerTl
+        .from(".services-page__title", {
+            opacity: 0,
+            y: -30,
+            duration: 0.8,
+            ease: "power3.out"
+        })
+        .from([".services-page__desc", ".services-page__line"], {
+            opacity: 0,
+            y: 20,
+            duration: 0.8,
+            stagger: 0.2,
+            ease: "power2.out"
+        }, "-=0.4");
+
+    gsap.from(".services-page__cta", {
+        scrollTrigger: {
+            trigger: ".services-page__cta",
+            start: "top 90%"
+        },
+        opacity: 0,
+        y: 20,
+        duration: 0.6,
+        ease: "power2.out",
+        clearProps: "transform"
+    });
+}
+}
+
+function contact(){
+    // Add inside your DOMContentLoaded listener
+
+const contactPage = document.querySelector('.contact-page');
+
+if (contactPage) {
+    // 1. Force reveal instantly to kill FOUC
+    gsap.set(contactPage, { autoAlpha: 1 });
+
+    const contactTl = gsap.timeline({
+        scrollTrigger: {
+            trigger: contactPage,
+            start: "top 85%"
+        }
+    });
+
+    contactTl
+        // 2. Animate Header Text (All fade)
+        .from(".contact-page__title", {
+            opacity: 0,
+            duration: 1,
+            ease: "power2.inOut"
+        })
+        .from(".contact-page__desc", {
+            opacity: 0,
+            duration: 0.8,
+            ease: "power2.inOut"
+        }, "-=0.6")
+        .from(".contact-page__line", {
+            opacity: 0,
+            duration: 0.8,
+            ease: "power2.inOut"
+        }, "-=0.6")
+        
+        // 3. Form Wrapper fades in
+        .from(".contact-form__wrapper", {
+            opacity: 0,
+            duration: 1.2,
+            ease: "power2.inOut"
+        }, "-=0.4")
+        
+        // 4. Input Fields fade in rapidly
+        .from(".contact-form__group", {
+            opacity: 0,
+            duration: 0.5,
+            stagger: 0.1,
+            ease: "power1.inOut"
+        }, "-=0.8")
+        
+        // 5. Button fades in
+        .from(".contact-form__submit-wrapper", {
+            opacity: 0,
+            duration: 0.8,
+            ease: "power2.inOut"
+        }, "-=0.2");
+}
+}
 header();
 hero();
 choose();
+stats();
+marquee();
+slider();
+review();
+services_page();
+contact();
