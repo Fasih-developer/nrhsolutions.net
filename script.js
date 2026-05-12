@@ -614,7 +614,7 @@ if (portfolioPage) {
 
     // 4. Batch Animation: Fade cards in, then AUTO-SLIDE them
     ScrollTrigger.batch(".bento-card", {
-        start: "top 80%", 
+        start: "top 90%", 
         onEnter: (batch) => {
             // Check if this row is loading immediately with the page
             let cardBaseDelay = isPreloading ? 3.5 : 0;
@@ -662,7 +662,7 @@ if (unitSection) {
     const unitTl = gsap.timeline({
         scrollTrigger: {
             trigger: unitSection,
-            start: "top 85%"
+            start: "top 90%"
         }
     });
 

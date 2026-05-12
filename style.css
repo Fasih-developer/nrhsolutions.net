@@ -1303,7 +1303,7 @@ color: var(--secondary-color);
     box-shadow: 0 10px 30px rgba(0,0,0,0.08);
     /* Fades in via GSAP */
     opacity: 0; 
-    transform: translateY(30px);
+    /* transform: translateY(30px); */
 }
 
 /* Sizing Modifiers */
