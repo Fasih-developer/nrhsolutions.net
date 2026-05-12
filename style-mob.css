@@ -335,17 +335,16 @@
     }
 
     /* Convert Grid to a horizontal Swiping Row */
-    .unit-grid {
+    /* .unit-grid {
         display: flex;
         flex-wrap: nowrap;
         overflow-x: auto;
-        -webkit-overflow-scrolling: touch; /* Smooth momentum scrolling on iOS */
+        -webkit-overflow-scrolling: touch; 
         scroll-snap-type: x mandatory;
         gap: 15px;
-        padding-bottom: 1rem; /* Space for the scrollbar/shadows */
+        padding-bottom: 1rem; 
     }
 
-    /* Hide the ugly native scrollbar for a clean app-like look */
     .unit-grid::-webkit-scrollbar {
         display: none;
     }
@@ -354,16 +353,14 @@
         scrollbar-width: none;
     }
 
-    /* Force images to be a specific width so they don't squish */
     .unit-grid img {
-        flex: 0 0 140px; /* Adjust this to make images larger/smaller on mobile */
+        flex: 0 0 140px; 
         scroll-snap-align: start;
     }
     
-    /* Reduce hover scale slightly for touch screens */
     .unit-grid img:hover {
         transform: scale(1.1); 
     }
 .unit-grid--2x2 img {
-        flex: 0 0 200px; /* Makes the images much larger when swiping on mobile */
-    }
+        flex: 0 0 200px;
+    } */
