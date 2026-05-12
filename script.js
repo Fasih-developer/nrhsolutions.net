@@ -559,6 +559,68 @@ if (aboutPage) {
         );
 }
 }
+function portfolio(){
+    // Add inside your DOMContentLoaded listener
+
+const portfolioPage = document.querySelector('.portfolio-page');
+
+if (portfolioPage) {
+    // 1. --- BEFORE/AFTER SLIDER LOGIC ---
+    // Select all slider containers on the page
+    const sliders = document.querySelectorAll('.before-after-slider');
+
+    sliders.forEach(slider => {
+        const input = slider.querySelector('.slider-input');
+        
+        // Listen for the user dragging the invisible input
+        input.addEventListener('input', (e) => {
+            // Update the CSS variable to match the input value (0 to 100)
+            slider.style.setProperty('--position', `${e.target.value}%`);
+        });
+    });
+
+    // 2. --- GSAP SCROLL ANIMATIONS ---
+    gsap.set(portfolioPage, { autoAlpha: 1 });
+
+    // Animate Header
+    const portHeaderTl = gsap.timeline({
+        scrollTrigger: {
+            trigger: ".portfolio-page__header",
+            start: "top 85%"
+        }
+    });
+
+    portHeaderTl
+        .from(".portfolio-page__title", {
+            opacity: 0,
+            y: -30,
+            duration: 0.8,
+            ease: "power3.out"
+        })
+        .from([".portfolio-page__desc", ".portfolio-page__line"], {
+            opacity: 0,
+            y: 20,
+            duration: 0.8,
+            stagger: 0.2,
+            ease: "power2.out"
+        }, "-=0.4");
+
+    // Batch Animate the Portfolio Cards (Fades them in row-by-row as you scroll down)
+    ScrollTrigger.batch(".portfolio-card", {
+        start: "top 85%",
+        onEnter: (batch) => {
+            gsap.from(batch, {
+                opacity: 0,
+                y: 50,
+                duration: 0.8,
+                stagger: 0.15, // Stagger effect for the row
+                ease: "back.out(1.2)",
+                clearProps: "all"
+            });
+        }
+    });
+}
+}
 header();
 hero();
 choose();
@@ -571,3 +633,4 @@ contact();
 privacy_policy();
 loader();
 about_us();
+portfolio();

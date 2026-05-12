@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="NRH Solutions offers premium, reliable, and professional property maintenance services. Contact us for top-tier property care.">
+    <meta name="keywords" content="Property Maintenance, NRH Solutions, Handyman Services, Premium Property Care">
+    <title>NRH Solutions | Portfolio</title>
+    <link rel="shortcut icon" href="/media/fav_logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style-mob.css" media="screen and (max-width: 768px)">
+</head>
+<body class="loading">
+    <!-- Global Preloader Animation -->
+<div class="preloader">
+    <!-- 1. Circular Spinner (Centered) -->
+    <div class="preloader__spinner"></div>
+
+    <!-- 2. Logo & Reveal Box Container -->
+    <div class="preloader__logo-wrapper">
+        <img src="./media/loader.webp" alt="NRH Solutions Logo" class="preloader__logo">
+        <!-- This box perfectly covers the logo initially -->
+        <div class="preloader__reveal-box"></div>
+    </div>
+</div>
+    
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container header__container">
+            <!-- Logo -->
+            <a href="/" class="header__logo" aria-label="NRH Solutions Home">
+                <img src="./media/head_logo.png" alt="NRH Solutions Logo">
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="header__nav" aria-label="Primary Navigation">
+                <ul class="nav__list">
+                    <li><a href="/" class="nav__link">Home</a></li>
+                    <li><a href="./services.html" class="nav__link">Services</a></li>
+                    <li><a href="./porfolio.html" class="nav__link">Portfolio</a></li>
+                    <li><a href="./aboutus.html" class="nav__link">About Us</a></li>
+                    <li><a href="./contact.html" class="nav__link">Contact Us</a></li>
+                </ul>
+            </nav>
+
+            <!-- Action Group -->
+            <div class="header__actions">
+                <a href="tel:+123456789" class="action__phone" aria-label="Call Us Now">
+                    <i class="ri-phone-fill"></i>
+                </a>
+                <a href="/contact.html" class="btn btn--primary header__cta">Request Quote</a>
+                
+                <!-- Mobile Toggle -->
+                <button class="nav__toggle" id="menu-open" aria-label="Open Menu">
+                    <i class="ri-menu-3-line"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div class="header__mobile-menu" id="mobile-menu">
+            <button class="menu__close" id="menu-close" aria-label="Close Menu">
+                <i class="ri-close-line"></i>
+            </button>
+            <ul class="mobile-nav__list">
+                <li><a href="/" class="mobile-nav__link">Home</a></li>
+                <li><a href="/services.html" class="mobile-nav__link">Services</a></li>
+                <li><a href="/porfolio.html" class="mobile-nav__link">Portfolio</a></li>
+                <li><a href="/aboutus.html" class="mobile-nav__link">About Us</a></li>
+                <li><a href="/contact.html" class="mobile-nav__link">Contact Us</a></li>
+                <li><a href="/contact.html" class="btn btn--primary">Request Quote</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+<section class="portfolio-page section" id="portfolio">
+    <div class="container portfolio-page__container">
+        
+        <div class="portfolio-page__header">
+            <h1 class="portfolio-page__title">WORK WE HAVE <span>DONE</span></h1>
+            <p class="portfolio-page__desc">
+                Our results speak for themselves. Slide to witness the transformation of properties through our expert maintenance and renovation services.
+            </p>
+            <div class="portfolio-page__line"></div>
+        </div>
+
+        <div class="portfolio-page__grid">
+            
+            <div class="portfolio-card">
+                <div class="before-after-slider">
+                    <input type="range" min="0" max="100" value="50" class="slider-input" aria-label="Percentage of before photo shown">
+                    
+                    <div class="slider-handle">
+                        <div class="slider-handle-button">
+                            <i class="ri-arrow-left-s-line"></i>
+                            <i class="ri-arrow-right-s-line"></i>
+                        </div>
+                    </div>
+
+                    
+                    <img src="/media/cleaning.webp" alt="Property After renovations" class="image-after">
+                    <img src="/media/about.webp" alt="Property before renovations" class="image-before">
+                </div>
+                <div class="portfolio-card__info">
+                    <h3>Kitchen Modernization</h3>
+                </div>
+            </div>
+
+            <div class="portfolio-card">
+                <div class="before-after-slider">
+                    <input type="range" min="0" max="100" value="50" class="slider-input" aria-label="Percentage of before photo shown">
+                    <div class="slider-handle">
+                        <div class="slider-handle-button">
+                            <i class="ri-arrow-left-s-line"></i><i class="ri-arrow-right-s-line"></i>
+                        </div>
+                    </div>
+                    <img src="/media/24.webp" alt="After" class="image-after">
+                    <img src="/media/cleaning.webp" alt="Before" class="image-before">
+                </div>
+                <div class="portfolio-card__info">
+                    <h3>Exterior Siding Repair</h3>
+                </div>
+            </div>
+
+            <div class="portfolio-card">
+                <div class="before-after-slider">
+                    <input type="range" min="0" max="100" value="50" class="slider-input" aria-label="Percentage of before photo shown">
+                    <div class="slider-handle">
+                        <div class="slider-handle-button">
+                            <i class="ri-arrow-left-s-line"></i><i class="ri-arrow-right-s-line"></i>
+                        </div>
+                    </div>
+                    <img src="/media/gutter.webp" alt="After" class="image-after">
+                    <img src="/media/tree.webp" alt="Before" class="image-before">
+                </div>
+                <div class="portfolio-card__info">
+                    <h3>Commercial Landscaping</h3>
+                </div>
+            </div>
+            
+            </div>
+    </div>
+</section>
+    </main>
+
+   <!-- Footer Section -->
+    <footer class="footer" id="footer">
+        <!-- Top Marquee -->
+        <div class="footer__marquee-wrapper">
+            <div class="footer__marquee">
+                <span>FEEL FREE TO CONTACT US.</span>
+                <span>FEEL FREE TO CONTACT US.</span>
+                <span>FEEL FREE TO CONTACT US.</span>
+                <span>FEEL FREE TO CONTACT US.</span>
+                <span>FEEL FREE TO CONTACT US.</span>
+                <span>FEEL FREE TO CONTACT US.</span>
+            </div>
+            <!-- Duplicate for seamless CSS loop -->
+            <div class="footer__marquee" aria-hidden="true">
+                <span>FEEL FREE TO CONTACT US.</span>
+                <span>FEEL FREE TO CONTACT US.</span>
+                <span>FEEL FREE TO CONTACT US.</span>
+                <span>FEEL FREE TO CONTACT US.</span>
+                <span>FEEL FREE TO CONTACT US.</span>
+                <span>FEEL FREE TO CONTACT US.</span>
+            </div>
+        </div>
+
+        <!-- Main Footer Content -->
+        <div class="container footer__container">
+            <div class="footer__grid">
+                
+                <!-- Column 1: Brand -->
+                <div class="footer__col footer__col--brand">
+                    <img src="./media/foot_logo.png" alt="NRH Solutions Logo" class="footer__logo">
+                    <p class="footer__desc">
+                        Your premier partner in property excellence. Delivering reliable solutions and complete peace of mind.
+                    </p>
+                </div>
+
+                <!-- Column 2: Useful Links -->
+                <div class="footer__col">
+                    <h4 class="footer__heading">Useful Links</h4>
+                    <ul class="footer__list">
+                        <li><a href="./aboutus.html">About</a></li>
+                        <li><a href="./services.html">Services</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Other Links -->
+                <div class="footer__col">
+                    <h4 class="footer__heading">Other Links</h4>
+                    <ul class="footer__list">
+                        <li><a href="./privacy.html">Privacy Policy</a></li>
+                        <li><a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a></li>
+                        <li><a href="https://facebook.com" target="_blank" rel="noopener">Facebook</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Contact Information -->
+                <div class="footer__col">
+                    <h4 class="footer__heading">Contact Us</h4>
+                    <ul class="footer__list footer__list--contact">
+                        <li>
+                            <a href="tel:+1XXXXXXXXXX">
+                                <i class="ri-phone-fill"></i> +1 (XXX) XXX-XXXX
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mailto:XXXXX@gmail.com">
+                                <i class="ri-mail-fill"></i> XXXXX@gmail.com
+                            </a>
+                        </li>
+                        <li>
+                            <span class="footer__location">
+                                <i class="ri-map-pin-fill"></i> XXX XXXXXX XXXXXXXXXXXXXX XXX
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Copyright Bar -->
+            <div class="footer__bottom">
+                <p>&copy; 2026 NRH Solutions. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
