@@ -565,24 +565,17 @@ function portfolio(){
 const portfolioPage = document.querySelector('.portfolio-page');
 
 if (portfolioPage) {
-    // 1. --- BEFORE/AFTER SLIDER LOGIC ---
-    // Select all slider containers on the page
-    const sliders = document.querySelectorAll('.before-after-slider');
-
-    sliders.forEach(slider => {
-        const input = slider.querySelector('.slider-input');
-        
-        // Listen for the user dragging the invisible input
-        input.addEventListener('input', (e) => {
-            // Update the CSS variable to match the input value (0 to 100)
-            slider.style.setProperty('--position', `${e.target.value}%`);
-        });
-    });
-
-    // 2. --- GSAP SCROLL ANIMATIONS ---
+    // 1. Unhide Section
     gsap.set(portfolioPage, { autoAlpha: 1 });
 
-    // Animate Header
+    // --- SMART DELAY LOGIC ---
+    // Protects the first row from animating blindly behind the preloader
+    let isPreloading = true;
+    setTimeout(() => {
+        isPreloading = false;
+    }, 4500); // 2.5 seconds to safely clear your loader's animation
+
+    // 2. Animate Header Text
     const portHeaderTl = gsap.timeline({
         scrollTrigger: {
             trigger: ".portfolio-page__header",
@@ -590,35 +583,182 @@ if (portfolioPage) {
         }
     });
 
+    // Check if we need to delay the header because the page just loaded
+    const headerDelay = isPreloading ? 3.0 : 0;
+
     portHeaderTl
-        .from(".portfolio-page__title", {
-            opacity: 0,
-            y: -30,
-            duration: 0.8,
-            ease: "power3.out"
+        .from(".portfolio-page__title", { 
+            opacity: 0, 
+            y: -30, 
+            duration: 0.8, 
+            delay: headerDelay, // Applies delay if preloader is running
+            ease: "power3.out" 
         })
-        .from([".portfolio-page__desc", ".portfolio-page__line"], {
-            opacity: 0,
-            y: 20,
-            duration: 0.8,
-            stagger: 0.2,
-            ease: "power2.out"
+        .from([".portfolio-page__desc", ".portfolio-page__line"], { 
+            opacity: 0, 
+            y: 20, 
+            duration: 0.8, 
+            stagger: 0.2, 
+            ease: "power2.out" 
         }, "-=0.4");
 
-    // Batch Animate the Portfolio Cards (Fades them in row-by-row as you scroll down)
-    ScrollTrigger.batch(".portfolio-card", {
-        start: "top 85%",
+    // 3. Prepare Sliders for User Interaction
+    const sliders = document.querySelectorAll('.before-after-slider');
+    sliders.forEach(slider => {
+        const input = slider.querySelector('.slider-input');
+        
+        input.addEventListener('input', (e) => {
+            slider.style.setProperty('--position', `${e.target.value}%`);
+        });
+    });
+
+    // 4. Batch Animation: Fade cards in, then AUTO-SLIDE them
+    ScrollTrigger.batch(".bento-card", {
+        start: "top 80%", 
         onEnter: (batch) => {
-            gsap.from(batch, {
-                opacity: 0,
-                y: 50,
-                duration: 0.8,
-                stagger: 0.15, // Stagger effect for the row
-                ease: "back.out(1.2)",
-                clearProps: "all"
+            // Check if this row is loading immediately with the page
+            let cardBaseDelay = isPreloading ? 3.5 : 0;
+
+            // First, fade the cards up
+            gsap.to(batch, {
+                opacity: 1,
+                y: 0,
+                duration: 0.6,
+                delay: cardBaseDelay, // Applies delay ONLY to the first row on load
+                stagger: 0.1,
+                ease: "power2.out",
+                clearProps: "transform"
+            });
+
+            // Second, animate the slider input value inside those specific cards
+            batch.forEach((card, index) => {
+                const sliderInput = card.querySelector('.slider-input');
+                const sliderContainer = card.querySelector('.before-after-slider');
+                
+                gsap.to(sliderInput, {
+                    value: 0, 
+                    duration: 1.5,
+                    // Adds the smart delay + stagger time so it waits perfectly
+                    delay: cardBaseDelay + 0.3 + (index * 0.1), 
+                    ease: "power3.inOut",
+                    onUpdate: function() {
+                        sliderContainer.style.setProperty('--position', `${sliderInput.value}%`);
+                    }
+                });
             });
         }
     });
+}
+}
+function unit(){
+    // Add inside your DOMContentLoaded listener
+
+const unitSection = document.querySelector('.unit-card');
+
+if (unitSection) {
+    // 1. Reveal section instantly (kill FOUC)
+    gsap.set(unitSection, { autoAlpha: 1 });
+
+    const unitTl = gsap.timeline({
+        scrollTrigger: {
+            trigger: unitSection,
+            start: "top 85%"
+        }
+    });
+
+    unitTl
+        // 2. Main Heading Fades Down
+        .from(".unit-card__title", {
+            opacity: 0,
+            y: -20,
+            duration: 0.8,
+            ease: "power2.out"
+        })
+        
+        // 3. The Before & After background boxes fade in
+        .from(".unit-gallery-block", {
+            opacity: 0,
+            y: 30,
+            duration: 0.6,
+            stagger: 0.2,
+            ease: "power2.out"
+        }, "-=0.4")
+        
+        // 4. The Magic: Images Pop Up from the middle out!
+        .from(".unit-grid img", {
+            opacity: 0,
+            scale: 0.5, // Start shrunken
+            duration: 0.5,
+            stagger: {
+                each: 0.04, // Very fast cascade
+                from: "center" // Animates from the middle images outwards
+            },
+            ease: "back.out(1.5)", // Bouncy pop effect
+            clearProps: "all" // CRITICAL: Gives control back to CSS so your hover zoom works!
+        }, "-=0.2")
+
+        // 5. The "Before" and "After" text labels fade in last
+        .from(".unit-label", {
+            opacity: 0,
+            y: 15,
+            duration: 0.5,
+            stagger: 0.2,
+            ease: "power2.out"
+        }, "-=0.2");
+}
+
+// Add this inside your DOMContentLoaded listener
+
+const grassSection = document.querySelector('#lawn-maintenance .unit-card');
+
+if (grassSection) {
+    // Reveal section instantly
+    gsap.set(grassSection, { autoAlpha: 1 });
+
+    const grassTl = gsap.timeline({
+        scrollTrigger: {
+            trigger: grassSection,
+            start: "top 85%"
+        }
+    });
+
+    grassTl
+        .from("#lawn-maintenance .unit-card__title", {
+            opacity: 0,
+            y: -20,
+            duration: 0.8,
+            ease: "power2.out",
+            clearProps: "all" /* THIS FIXES THE INVISIBLE HEADING */
+        })
+        .from("#lawn-maintenance .unit-gallery-block", {
+            opacity: 0,
+            y: 30,
+            duration: 0.6,
+            stagger: 0.2,
+            ease: "power2.out",
+            clearProps: "all" /* THIS FIXES THE INVISIBLE HEADING */
+
+        }, "-=0.4")
+        .from("#lawn-maintenance .unit-grid img", {
+            opacity: 0,
+            scale: 0.5,
+            duration: 0.5,
+            stagger: {
+                each: 0.1, // Slightly slower stagger since there are fewer images
+                from: "center" 
+            },
+            ease: "back.out(1.5)",
+            clearProps: "all"
+        }, "-=0.2")
+        .from("#lawn-maintenance .unit-label", {
+            opacity: 0,
+            y: 15,
+            duration: 0.5,
+            stagger: 0.2,
+            ease: "power2.out",
+           clearProps: "all" /* THIS FIXES THE INVISIBLE HEADING */
+
+        }, "-=0.2");
 }
 }
 header();
@@ -634,3 +774,4 @@ privacy_policy();
 loader();
 about_us();
 portfolio();
+unit();

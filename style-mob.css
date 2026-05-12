@@ -299,16 +299,71 @@
 
 
 
+
     .portfolio-page { padding: 6rem 0 4rem 0; }
     .portfolio-page__title { font-size: 2.5rem; }
     
-    .portfolio-page__grid {
-        grid-template-columns: 1fr; /* 1 card per row on mobile */
-        gap: 2rem;
+    .portfolio-bento-grid {
+        grid-template-columns: 1fr; /* 1 column stack */
+        grid-auto-rows: auto;
+        gap: 1.5rem;
         padding: 0 1rem;
     }
 
-    /* Make cards slightly less tall on mobile so they fit the screen better */
-    .before-after-slider {
-        aspect-ratio: 1 / 1; /* Square on mobile */
+    /* Destroy the bento sizes on mobile - everything is a uniform square */
+    .bento-card {
+        grid-column: span 1 !important;
+        grid-row: span 1 !important;
+        aspect-ratio: 1 / 1; /* Makes every card perfectly square */
+    }
+
+
+
+    
+    .unit-card__title {
+        font-size: 2.2rem;
+        margin-bottom: 2rem;
+    }
+
+    .unit-gallery-wrapper {
+        grid-template-columns: 1fr; /* Stack Before on top of After */
+        gap: 2.5rem;
+    }
+
+    .unit-gallery-block {
+        padding: 1.5rem 1rem;
+    }
+
+    /* Convert Grid to a horizontal Swiping Row */
+    .unit-grid {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch; /* Smooth momentum scrolling on iOS */
+        scroll-snap-type: x mandatory;
+        gap: 15px;
+        padding-bottom: 1rem; /* Space for the scrollbar/shadows */
+    }
+
+    /* Hide the ugly native scrollbar for a clean app-like look */
+    .unit-grid::-webkit-scrollbar {
+        display: none;
+    }
+    .unit-grid {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    /* Force images to be a specific width so they don't squish */
+    .unit-grid img {
+        flex: 0 0 140px; /* Adjust this to make images larger/smaller on mobile */
+        scroll-snap-align: start;
+    }
+    
+    /* Reduce hover scale slightly for touch screens */
+    .unit-grid img:hover {
+        transform: scale(1.1); 
+    }
+.unit-grid--2x2 img {
+        flex: 0 0 200px; /* Makes the images much larger when swiping on mobile */
     }
