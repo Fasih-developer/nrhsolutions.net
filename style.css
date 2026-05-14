@@ -871,7 +871,27 @@ color: var(--secondary-color);
 
 
 
+/* Stack the images */
+.service-card__img-container {
+    position: relative;
+    overflow: hidden; /* Keeps things neat */
+}
 
+.service-card__img-container img:nth-child(2) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.8s ease-in-out; /* Smooth fade effect */
+}
+
+/* Class triggered by JavaScript to reveal the second image */
+.service-card__img-container.swap-active img:nth-child(2) {
+    opacity: 1; 
+}
 /* --------------------------------------------------------------------------------------------------------------------------------- */
 /* ---------------------------------------------------------- Contact ---------------------------------------------------------------- */
 /* --------------------------------------------------------------------------------------------------------------------------------- */
@@ -1395,26 +1415,26 @@ color: var(--secondary-color);
     background-color: var(--card-color);
     border-radius: 20px;
     padding: 3rem 3rem;
-    min-height: 45vh; /* Flexible height as requested */
+    min-height: 45vh; 
     box-shadow: 0 15px 40px rgba(0,0,0,0.06);
     
     /* FOUC Protection for GSAP */
-    opacity: 0;
-    visibility: hidden;
+    /* opacity: 0; */
+    /* visibility: hidden; */
 }
 
 .unit-card__title {
     text-align: center;
     font-size: 2.8rem;
-    color: var(--primary-text); /* Fallback, assumes primary text is your main dark color */
+    color: var(--primary-text); 
     margin-bottom: 3rem;
     text-transform: capitalize;
 }
 
 .unit-gallery-wrapper {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Two equal columns on desktop */
-    gap: 2rem;
+    grid-template-columns: 1fr 1fr; /* Side-by-side on desktop */
+    gap: 3rem; /* Gave it a little more breathing room */
     align-items: stretch;
 }
 
@@ -1422,40 +1442,65 @@ color: var(--secondary-color);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: #ffffff62; /* Very subtle backdrop to separate the boxes */
+    background-color: #ffffff62; 
     padding: 2rem;
     border-radius: 12px;
     border: 1px solid rgba(0,0,0,0.05);
 }
-
-/* 4-column sub-grid for the tiny images */
-.unit-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
-    margin-bottom: 2rem;
+/* --- Single Slider Modifier --- */
+.unit-gallery-wrapper--single {
+    display: block; /* Removes the grid */
+    max-width: 800px; /* Prevents the image from getting ridiculously huge on desktop */
+    margin: 0 auto; /* Centers the whole block perfectly */
 }
-
-.unit-grid img {
+/* --- NEW SLIDER STYLES --- */
+.image-slider {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     width: 100%;
-    aspect-ratio: 4 / 3; /* Keeps images beautifully uniform */
+    gap: 15px; /* Space between arrows and image */
+    margin-bottom: 1.5rem;
+}
+
+.slider-viewport {
+    overflow: hidden; /* Hides the images not currently active */
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    aspect-ratio: 4 / 3; /* Keeps the frame consistent */
+}
+
+.slider-track {
+    display: flex;
+    height: 100%;
+    transition: transform 0.4s ease-in-out; /* Smooth swiping animation */
+}
+
+.slider-track img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    border-radius: 6px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    flex-shrink: 0; /* Prevents images from squishing */
+}
+
+.slider-btn {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: var(--secondary-color); /* Uses your theme color */
     cursor: pointer;
-    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease, z-index 0s;
-    position: relative;
-    z-index: 1;
+    padding: 0;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    flex-shrink: 0;
 }
 
-/* CSS Zoom Effect on Hover */
-.unit-grid img:hover {
-    transform: scale(1.4); /* Zooms in 40% */
-    z-index: 10; /* Pops it above the other images */
-    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+.slider-btn:hover {
+    transform: scale(1.2);
+    opacity: 0.8;
 }
 
-/* Typography for the labels */
+/* Typography */
 .unit-label {
     text-align: center;
     font-size: 1.5rem;
@@ -1465,18 +1510,9 @@ color: var(--secondary-color);
 }
 
 .unit-label--after {
-    color: var(--accent-hover)
+    color: var(--accent-hover);
 }
 
-/* --- Unit Turnover Mobile --- */
-/* @media (max-width: 992px) {
-    .unit-card {
-        padding: 2rem;
-    }
-    .unit-gallery-wrapper {
-        gap: 2rem;
-    }
-} */
 /* Modifier for 4-image galleries (2x2 layout) */
 .unit-grid--2x2 {
     grid-template-columns: repeat(2, 1fr);
@@ -1530,7 +1566,7 @@ body.loading {
 }
 
 .preloader__logo {
-    width: 380px; /* Adjust this width based on your actual logo */
+    width: 310px; /* Adjust this width based on your actual logo */
     height: auto;
     display: block;
 }

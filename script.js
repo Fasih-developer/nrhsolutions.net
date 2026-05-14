@@ -220,8 +220,10 @@ function slider(){
             duration: 0.8,
             ease: "power2.out",
             clearProps: "transform"
-        }, "<"); // FIX: "<" forces this to start at the exact same time as the cards
+        }, "<");
 });
+
+
 }
 function review(){
     // 1. Mobile-Only Swiper Logic
@@ -343,6 +345,20 @@ if (servicesPage) {
         clearProps: "transform"
     });
 }
+document.addEventListener("DOMContentLoaded", () => {
+    // Find all service cards with stacked images
+    const imageContainers = document.querySelectorAll('.service-card__img-container');
+
+    // Toggle the swap class every 3 seconds
+    setInterval(() => {
+        imageContainers.forEach(container => {
+            // Check if it actually has two images before trying to swap
+            if (container.children.length > 1) {
+                container.classList.toggle('swap-active');
+            }
+        });
+    }, 3000);
+});
 }
 function contact(){
     // Add inside your DOMContentLoaded listener
@@ -650,117 +666,89 @@ if (portfolioPage) {
     });
 }
 }
-function unit(){
-    // Add inside your DOMContentLoaded listener
+function unit() {
+    const unitSection = document.querySelector('#unit-turnover .unit-card');
 
-const unitSection = document.querySelector('.unit-card');
+    if (unitSection) {
+        // 1. Reveal section instantly (kill FOUC)
+        gsap.set(unitSection, { autoAlpha: 1 });
 
-if (unitSection) {
-    // 1. Reveal section instantly (kill FOUC)
-    gsap.set(unitSection, { autoAlpha: 1 });
+        const unitTl = gsap.timeline({
+            scrollTrigger: {
+                trigger: unitSection,
+                start: "top 90%"
+            }
+        });
 
-    const unitTl = gsap.timeline({
-        scrollTrigger: {
-            trigger: unitSection,
-            start: "top 90%"
+        // 2. Simple Fade Animation (Removed the staggered pops)
+        unitTl
+            .from("#unit-turnover .unit-card__title", {
+                opacity: 0,
+                y: -20,
+                duration: 0.8,
+                ease: "power2.out",
+                clearProps: "all"
+            })
+            .from("#unit-turnover .unit-gallery-block", {
+                opacity: 0,
+                y: 30,
+                duration: 0.8,
+                stagger: 0.2,
+                ease: "power2.out",
+                clearProps: "all"
+            }, "-=0.4");
+            
+        // 3. Carousel/Slider Logic Function
+        function setupSlider(trackId) {
+           // --- UNIVERSAL CAROUSEL/SLIDER LOGIC ---
+// This will automatically find EVERY slider on your page and make it work,
+// no matter how many times you copy and paste the HTML!
+
+const allSliders = document.querySelectorAll('.image-slider');
+
+allSliders.forEach(slider => {
+    // Find the track and buttons specifically inside THIS slider
+    const track = slider.querySelector('.slider-track');
+    const prevBtn = slider.querySelector('.prev-btn');
+    const nextBtn = slider.querySelector('.next-btn');
+    
+    // If something is missing, skip it to prevent errors
+    if (!track || !prevBtn || !nextBtn) return;
+    
+    let currentIndex = 0;
+    const slidesCount = track.querySelectorAll('img').length;
+
+    function updateSliderPosition() {
+        // Moves the track left/right based on the current index
+        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+
+    prevBtn.addEventListener('click', () => {
+        if (currentIndex > 0) {
+            currentIndex--;
+        } else {
+            currentIndex = slidesCount - 1; // Loop to the end
         }
+        updateSliderPosition();
     });
 
-    unitTl
-        // 2. Main Heading Fades Down
-        .from(".unit-card__title", {
-            opacity: 0,
-            y: -20,
-            duration: 0.8,
-            ease: "power2.out"
-        })
-        
-        // 3. The Before & After background boxes fade in
-        .from(".unit-gallery-block", {
-            opacity: 0,
-            y: 30,
-            duration: 0.6,
-            stagger: 0.2,
-            ease: "power2.out"
-        }, "-=0.4")
-        
-        // 4. The Magic: Images Pop Up from the middle out!
-        .from(".unit-grid img", {
-            opacity: 0,
-            scale: 0.5, // Start shrunken
-            duration: 0.5,
-            stagger: {
-                each: 0.04, // Very fast cascade
-                from: "center" // Animates from the middle images outwards
-            },
-            ease: "back.out(1.5)", // Bouncy pop effect
-            clearProps: "all" // CRITICAL: Gives control back to CSS so your hover zoom works!
-        }, "-=0.2")
-
-        // 5. The "Before" and "After" text labels fade in last
-        .from(".unit-label", {
-            opacity: 0,
-            y: 15,
-            duration: 0.5,
-            stagger: 0.2,
-            ease: "power2.out"
-        }, "-=0.2");
-}
-
-// Add this inside your DOMContentLoaded listener
-
-const grassSection = document.querySelector('#lawn-maintenance .unit-card');
-
-if (grassSection) {
-    // Reveal section instantly
-    gsap.set(grassSection, { autoAlpha: 1 });
-
-    const grassTl = gsap.timeline({
-        scrollTrigger: {
-            trigger: grassSection,
-            start: "top 85%"
+    nextBtn.addEventListener('click', () => {
+        if (currentIndex < slidesCount - 1) {
+            currentIndex++;
+        } else {
+            currentIndex = 0; // Loop back to start
         }
+        updateSliderPosition();
     });
+});
+        }
 
-    grassTl
-        .from("#lawn-maintenance .unit-card__title", {
-            opacity: 0,
-            y: -20,
-            duration: 0.8,
-            ease: "power2.out",
-            clearProps: "all" /* THIS FIXES THE INVISIBLE HEADING */
-        })
-        .from("#lawn-maintenance .unit-gallery-block", {
-            opacity: 0,
-            y: 30,
-            duration: 0.6,
-            stagger: 0.2,
-            ease: "power2.out",
-            clearProps: "all" /* THIS FIXES THE INVISIBLE HEADING */
-
-        }, "-=0.4")
-        .from("#lawn-maintenance .unit-grid img", {
-            opacity: 0,
-            scale: 0.5,
-            duration: 0.5,
-            stagger: {
-                each: 0.1, // Slightly slower stagger since there are fewer images
-                from: "center" 
-            },
-            ease: "back.out(1.5)",
-            clearProps: "all"
-        }, "-=0.2")
-        .from("#lawn-maintenance .unit-label", {
-            opacity: 0,
-            y: 15,
-            duration: 0.5,
-            stagger: 0.2,
-            ease: "power2.out",
-           clearProps: "all" /* THIS FIXES THE INVISIBLE HEADING */
-
-        }, "-=0.2");
+        // Initialize both sliders
+        setupSlider('unit-before-track');
+        setupSlider('unit-after-track');
+    }
 }
-}
+
 header();
 hero();
 choose();

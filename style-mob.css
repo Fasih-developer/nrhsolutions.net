@@ -364,3 +364,20 @@
 .unit-grid--2x2 img {
         flex: 0 0 200px;
     } */
+
+
+
+        .unit-gallery-wrapper {
+        grid-template-columns: 1fr; /* Stacks sliders into rows */
+        gap: 2rem;
+    }
+    .unit-card {
+        padding: 2rem 1.5rem;
+    }
+    .unit-card__title {
+        font-size: 2.2rem;
+        margin-bottom: 2rem;
+    }
+    .slider-btn {
+        font-size: 1.5rem; /* Slightly smaller arrows on mobile */
+    }
