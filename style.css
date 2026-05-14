@@ -70,7 +70,6 @@ i {
     background-color: var(--bg-color);
     border-bottom: 1px solid rgba(46, 43, 43, 0.1);
 }
-
 .header__container {
     height: 90px;
     display: flex;
@@ -1499,7 +1498,7 @@ body.loading {
     left: 0;
     width: 100%;
     height: 100vh;
-    background-color: var(--secondary-color); /* Dark primary background */
+    background-color:#81572d; /* Dark primary background */
     z-index: 99999; /* Keeps it strictly above everything else */
     display: flex;
     justify-content: center;
@@ -1531,7 +1530,7 @@ body.loading {
 }
 
 .preloader__logo {
-    width: 220px; /* Adjust this width based on your actual logo */
+    width: 380px; /* Adjust this width based on your actual logo */
     height: auto;
     display: block;
 }
@@ -1543,6 +1542,6 @@ body.loading {
     left: -1%; /* Slight overhang to prevent 1px bleeding */
     width: 102%;
     height: 100%;
-    background-color: var(--secondary-color); /* EXACT SAME color as preloader background */
+    background-color: #81572d; /* EXACT SAME color as preloader background */
     z-index: 2;
 }
