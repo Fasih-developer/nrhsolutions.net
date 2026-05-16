@@ -78,7 +78,7 @@ i {
 }
 
 .header__logo img {
-    height: 70px; /* Adjust based on logo aspect ratio */
+    height: 80px; /* Adjust based on logo aspect ratio */
     width: auto;
 }
 
