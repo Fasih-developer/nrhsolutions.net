@@ -21,7 +21,7 @@ html {
 
 body {
     font-family: "Montserrat", sans-serif;
-    background-color: var(--bg-color);
+    background-color: var(--bg-color);  
     color: var(--primary-text);
     overflow-x: hidden;
     line-height: 1.6;
